@@ -43,3 +43,33 @@ int uBit_MLX90614::getTemp(uint8_t reg) {
   temp -= 27315;
   return temp;
 }
+
+extern MicroBit uBit;
+
+/**
+* Location of temperature
+*/
+enum TemperatureLocation {
+    Object,
+    Ambiant
+};
+
+/**
+* Functions to support the MLX90614 sensor
+*/
+//% 
+namespace mlx90614 {
+    /**
+    * Reads the temperature from the IR sensor MLX90614
+    */
+    //% blockId=mlx90614 block="temperature %loc"
+    int temperature(TemperatureLocation loc) {
+        uBit_MLX90614 sensor(&uBit.i2c);
+        switch(loc) {
+            case TemperatureLocation::Ambiant:
+                return sensor.getAmbient();
+            default:
+                return sensor.getObject();
+        }
+    }
+}

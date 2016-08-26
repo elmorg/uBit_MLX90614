@@ -1,0 +1,18 @@
+{
+    "name": "mlx90614",
+    "version": "0.1.0",
+    "description": "A package to use temperature probes using the MLX90614",
+    "license": "MIT",
+    "dependencies": {
+        "microbit": "*"
+    },
+    "files": [
+        "README.md",
+        "uBit_MLX90614.cpp",
+        "uBit_MLX90614.h",
+        "shims.d.ts",
+        "enums.d.ts"
+    ],
+    "testFiles": [],
+    "public": true
+}
